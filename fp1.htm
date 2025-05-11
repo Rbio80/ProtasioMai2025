@@ -1,1 +1,97 @@
-<html><frameset rows="60,*" frameborder="NO" framespacing="0"><noframe><script language="JavaScript"><!--window.location.href='inp.htm'//--></script>You must use a browser that can display frames or be able to execute JavaScript to see this page.</NOFRAME><frame src="inp.htm" frameborder="NO" scrolling="auto" marginheight="0" marginwidth="0" framespacing="0"><frame src="fp2.htm" name="framefp1" frameborder="NO" marginheight="6" marginwidth="6" framespacing="0"></frameset></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Protasio - Responsivo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=5, user-scalable=yes">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    #topbar {
+      height: 60px;
+      width: 100%;
+      border-bottom: 1px solid #ccc;
+      overflow: hidden;
+    }
+    #main {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+    }
+    #sidebar {
+      width: 250px;
+      min-width: 100px;
+      max-width: 90%;
+      height: 100%;
+      border-right: 2px solid #888;
+      overflow: hidden;
+    }
+    #resizer {
+      width: 5px;
+      background: #ccc;
+      cursor: ew-resize;
+      touch-action: none;
+    }
+    #content {
+      flex-grow: 1;
+      overflow: hidden;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="topbar">
+    <iframe src="inp.htm"></iframe>
+  </div>
+  <div id="main">
+    <div id="sidebar">
+      <iframe src="paf0.htm" name="patros"></iframe>
+    </div>
+    <div id="resizer"></div>
+    <div id="content">
+      <iframe src="ifv.htm" name="fiche_ind"></iframe>
+    </div>
+  </div>
+  <script>
+    const resizer = document.getElementById('resizer');
+    const sidebar = document.getElementById('sidebar');
+
+    let x = 0;
+    let sidebarWidth = 0;
+
+    const mouseDownHandler = function(e) {
+      x = e.clientX || (e.touches ? e.touches[0].clientX : 0);
+      sidebarWidth = sidebar.offsetWidth;
+      document.addEventListener('mousemove', mouseMoveHandler);
+      document.addEventListener('mouseup', mouseUpHandler);
+      document.addEventListener('touchmove', mouseMoveHandler);
+      document.addEventListener('touchend', mouseUpHandler);
+    };
+
+    const mouseMoveHandler = function(e) {
+      const dx = (e.clientX || (e.touches ? e.touches[0].clientX : 0)) - x;
+      sidebar.style.width = `${sidebarWidth + dx}px`;
+    };
+
+    const mouseUpHandler = function() {
+      document.removeEventListener('mousemove', mouseMoveHandler);
+      document.removeEventListener('mouseup', mouseUpHandler);
+      document.removeEventListener('touchmove', mouseMoveHandler);
+      document.removeEventListener('touchend', mouseUpHandler);
+    };
+
+    resizer.addEventListener('mousedown', mouseDownHandler);
+    resizer.addEventListener('touchstart', mouseDownHandler);
+  </script>
+</body>
+</html>

@@ -1,9 +1,42 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-<title>Pesquisar</title>
+  <meta charset="UTF-8">
+  <title>Pesquisar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.4, maximum-scale=5, user-scalable=yes">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #2a4a7b;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      max-width: 800px;
+      height: 200px;
+    }
+    #results {
+      flex-grow: 1;
+      width: 100%;
+      max-width: 800px;
+      height: 70vh;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+    }
+  </style>
 </head>
-<frameset rows="200,*" frameborder="no" framespacing="0">
-<frame src="rec_input.htm" name=input_frame frameborder="0" scrolling="no">
-<frame src="rec_res.htm" name="resultat" frameborder="1" scrolling="yes">
-</frameset>
+<body>
+  <h1>Pesquisar na base de dados</h1>
+  <p>Digite o nome, sobrenome ou outro critério de busca no campo abaixo e pressione Enter.</p>
+  <iframe src="rec_input.htm" name="input_frame"></iframe>
+  <iframe src="rec_res.htm" name="resultat" id="results"></iframe>
+</body>
 </html>
