@@ -17,6 +17,7 @@
 </head>
 <body>
 
+<div style="color:blue; font-weight:bold; margin-bottom:10px;">CLIQUE NOS MENUS ABAIXO PARA OS RESULTADOS PRINCIPAIS</div>
 <font color="#E84AE3" size="+1"><strong><div id=NAME></div></strong></font>
     <script type="text/javascript">
         //<!--
@@ -100,14 +101,12 @@
 <body>
         <div class="systeme_tabs">
         <div class="tabs">
-            <span class="tab_0 tab" id="tab_individual" onclick="javascript:change_tab('individual');">Individual</span>
-            <span class="tab_0 tab" id="tab_parental" onclick="javascript:change_tab('parental');">Parental</span>
-            <span class="tab_0 tab" id="tab_family" onclick="javascript:change_tab('family');">Family</span>
-            <span class="tab_0 tab" id="tab_ascend" onclick="javascript:change_tab('ascend');">Ancestry</span>
-            <span class="tab_0 tab" id="tab_descend" onclick="javascript:change_tab('descend');">Descendancy</span>
-            <span class="tab_0 tab" id="tab_sources" onclick="javascript:change_tab('sources');">Sources</span>
-            <span class="tab_0 tab" id="tab_docs" onclick="javascript:change_tab('docs');">Documents</span>
-        </div>
+            <span class="tab_0 tab" id="tab_individual" onclick="javascript:change_tab('individual');"><span style="color:blue; text-decoration:underline;">DADOS DA PESSOA</span></span>
+            <span class="tab_0 tab" id="tab_parental" onclick="javascript:change_tab('parental');"><span style="color:blue; text-decoration:underline;">PAIS E IRMÃOS</span></span>
+            <span class="tab_0 tab" id="tab_family" onclick="javascript:change_tab('family');"><span style="color:blue; text-decoration:underline;">ESPOSA E FILHOS</span></span>
+            <span class="tab_0 tab" id="tab_ascend" onclick="javascript:change_tab('ascend');"><span style="color:blue; text-decoration:underline;">ANCESTRAIS</span></span>
+            <span class="tab_0 tab" id="tab_descend" onclick="javascript:change_tab('descend');"><span style="color:blue; text-decoration:underline;">DESCENDENTES</span></span>
+            </div>
         <div class="contenu_tabs">
             <div class="contenu_tab" id="contenu_tab_individual">
                 <div id=BIRTH></div>
@@ -128,11 +127,9 @@
             <div class="contenu_tab" id="contenu_tab_descend">
                 <div id=DESCENT_TREE></div>
             </div>
-            <div class="contenu_tab" id="contenu_tab_sources">
-                <div id=SOURCES></div>
+            
             </div>
-            <div class="contenu_tab" id="contenu_tab_docs">
-                <div id=DOCUMENTS></div>
+            
             </div>
         </div>
     </div>
@@ -159,13 +156,13 @@
 		idInd=0;
 	}
 
-	document.getElementById("tab_individual").innerHTML=GetSentence("HTML_INDI");
-	document.getElementById("tab_parental").innerHTML=GetSentence("JS_PARENTAL");	
-	document.getElementById("tab_family").innerHTML=GetSentence("HTML_FAMILLES");
-	document.getElementById("tab_ascend").innerHTML=GetSentence("HTML_LASC");	
-	document.getElementById("tab_descend").innerHTML=GetSentence("HTML_LDSC");	
-	document.getElementById("tab_sources").innerHTML=GetSentence("HTML_ACC_SRC");	
-	document.getElementById("tab_docs").innerHTML=GetSentence("HTML_DOC");	
+	document.getElementById("tab_individual").innerHTML="<span style=\"color:blue; text-decoration:underline;\">DADOS DA PESSOA</span>";
+	document.getElementById("tab_parental").innerHTML="<span style=\"color:blue; text-decoration:underline;\">PAIS E IRMÃOS</span>";	
+	document.getElementById("tab_family").innerHTML="<span style=\"color:blue; text-decoration:underline;\">ESPOSA E FILHOS</span>";
+	document.getElementById("tab_ascend").innerHTML="<span style=\"color:blue; text-decoration:underline;\">ANCESTRAIS</span>";	
+	document.getElementById("tab_descend").innerHTML="<span style=\"color:blue; text-decoration:underline;\">DESCENDENTES</span>";	
+		
+		
 	
 	idName=lst_family[idInd][0];
 	idFirstName=lst_family[idInd][1];
@@ -1267,29 +1264,29 @@ function format_date_between(sDate)
 //	console.log("sEventBlockSources  : " + sEventBlockSources);
 	if(sEventBlockSources=="")
 	{
-		document.getElementById("tab_sources").style.display = "none";
-		document.getElementById("contenu_tab_sources").style.display = "none";
-		document.getElementById("SOURCES").style.display = "none";
-		document.getElementById("tab_sources").style.visibility = "hidden";
-		document.getElementById("contenu_tab_sources").style.visibility = "hidden";
-		document.getElementById("SOURCES").style.visibility = "hidden";
+		
+		
+		
+		
+		
+		
 	}
 	else
 	{
-		document.getElementById("SOURCES").innerHTML=sEventBlockSources;
+		
 	}
 	if(sEventBlockDocs=="")
 	{
-		document.getElementById("tab_docs").style.display = "none";
-		document.getElementById("contenu_tab_docs").style.display = "none";
-		document.getElementById("DOCUMENTS").style.display = "none";
-		document.getElementById("tab_docs").style.visibility = "hidden";
-		document.getElementById("contenu_tab_docs").style.visibility = "hidden";
-		document.getElementById("DOCUMENTS").style.visibility = "hidden";
+		
+		
+		
+		
+		
+		
 	}
 	else
 	{
-		document.getElementById("DOCUMENTS").innerHTML=sEventBlockDocs;
+		
 	}
 
 function DisplayPhotoInd(IdIndDisp)
